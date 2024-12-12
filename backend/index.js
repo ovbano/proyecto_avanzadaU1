@@ -39,6 +39,25 @@ io.on('connection', (socket) => {
     }
   });
 
+  // Actualizar puntajes manualmente
+  socket.on('updateScore', (data) => {
+    const { gameCode, playerId, round, score } = data;
+
+    if (games[gameCode]) {
+      if (!games[gameCode].scores) {
+        games[gameCode].scores = {};
+      }
+      if (!games[gameCode].scores[playerId]) {
+        games[gameCode].scores[playerId] = {};
+      }
+      games[gameCode].scores[playerId][round] = score;
+
+      // Notificar a todos los jugadores en la partida
+      io.to(gameCode).emit('scoresUpdated', games[gameCode].scores);
+    }
+  });
+
+
   // Unirse a una partida
   socket.on('joinGame', (data, callback) => {
     const gameCode = data.gameCode;

@@ -1,4 +1,33 @@
+<!-- <div class="game-board">
+  <h1>Tablero de Puntos</h1>
+  <p>¡La partida ha comenzado! Aquí se mostrarán los puntos de los jugadores.</p>
+</div> -->
+
 <div class="game-board">
   <h1>Tablero de Puntos</h1>
   <p>¡La partida ha comenzado! Aquí se mostrarán los puntos de los jugadores.</p>
+
+  <table class="flex">
+    <thead>
+      <tr>
+        <th>Jugadores</th>
+        <th *ngFor="let round of rounds">{{ round }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players">
+        <!-- Columna de Jugadores -->
+        <td>{{ player }}</td>
+
+        <!-- Columnas de Rondas con inputs -->
+        <td *ngFor="let round of rounds">
+          <input
+            type="number"
+            [value]="getScore(player, round)"
+            (change)="updateScore(gameCode, player, round, handleInputChange($event))"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

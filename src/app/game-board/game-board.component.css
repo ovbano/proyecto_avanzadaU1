@@ -5,3 +5,22 @@
   border: 2px solid #ddd;
   border-radius: 8px;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+td {
+  text-align: center;
+}

@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Telefunken - Sistema de Puntos</h1>
+
+  <div *ngIf="!waiting">
+    <div class="actions">
+      <button (click)="createGame()">Crear una Partida</button>
+      <button (click)="joinGame()">Unirse a una Partida</button>
+    </div>
+  </div>
+
+  <div *ngIf="waiting">
+    <h2>Sala de espera</h2>
+    <p>Código de la partida: <strong>{{ gameCode }}</strong></p>
+    <p>Jugadores:</p>
+    <ul>
+      <li *ngFor="let player of players">{{ player }}</li>
+    </ul>
+
+    <div *ngIf="gameReady">
+      <button (click)="startGame()">Iniciar Partida</button>
+    </div>
+  </div>
+</div>

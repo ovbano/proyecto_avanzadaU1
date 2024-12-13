@@ -19,12 +19,23 @@ export class GameBoardComponent {
 
   ngOnInit() {
     this.listenToGameUpdates();
+    this.listenToScoreUpdates();
+    console.log('Jugadores al iniciar:', this.players);  // Verifica los jugadores al cargar el componente
+  }
+
+  // Escuchar las actualizaciones de los puntajes en tiempo real
+  listenToScoreUpdates() {
+    this.socketService.on('scoreUpdated', (data: { [player: string]: { [round: string]: number } }) => {
+      console.log('Puntajes actualizados:', data);
+      this.scores = { ...this.scores, ...data }; // Actualizar los puntajes de manera segura
+    });
   }
 
   // Escuchar actualizaciones de la partida
   listenToGameUpdates() {
-    this.socketService.on('playerJoined', (data: { players: string[] }) => {
-      this.players = data.players;
+    this.socketService.on('gameUpdated', (data: { players: string[], scores: { [player: string]: { [round: string]: number } }, started: boolean }) => {
+      console.log('Jugadores recibidos:', data.players);  // Verificar los jugadores
+      this.players = [...data.players];
 
       // Inicializar puntajes para nuevos jugadores
       this.players.forEach((player) => {
@@ -33,8 +44,15 @@ export class GameBoardComponent {
           this.rounds.forEach((round) => (this.scores[player][round] = 0));
         }
       });
+
+      // Actualizar puntajes si se recibe un objeto de puntajes
+      if (data.scores) {
+        this.scores = { ...this.scores, ...data.scores };
+      }
+
     });
   }
+
 
   // Obtener puntaje actual
   getScore(player: string, round: string): number {
@@ -43,21 +61,39 @@ export class GameBoardComponent {
 
   // Actualizar puntaje manualmente
   updateScore(gameCode: string, player: string, round: string, score: string) {
-    const parsedScore = parseInt(score, 10) || 0;
-    this.scores[player][round] = parsedScore;
+    if (!gameCode) {
+      console.error('El código de la partida no está definido');
+      return;
+    }
 
-    // Emitir cambios al servidor
-    this.socketService.emit('updateScore', {
-      gameCode,
-      player,
-      round,
-      score: parsedScore,
-    });
+    const parsedScore = parseInt(score, 10) || 0;
+    if (this.scores[player] && this.scores[player][round] !== undefined) {
+      this.scores[player][round] = parsedScore;
+
+      // Emitir cambios al servidor
+      this.socketService.emit('updateScore', {
+        gameCode,
+        player,
+        round,
+        score: parsedScore,
+      });
+    } else {
+      console.error('Jugador o ronda inválidos para actualizar el puntaje.');
+    }
+  }
+
+
+  // Calcular el total de los puntajes de un jugador
+  getTotalScore(player: string): number {
+    return this.rounds.reduce(
+      (total, round) => total + (this.scores[player]?.[round] || 0),
+      0
+    );
   }
 
   handleInputChange(event: Event): string {
     const target = event.target as HTMLInputElement;
-    return target?.value || '0';
+    return target ? target.value : '0'; // Asegura que target sea un input válido
   }
 
 }

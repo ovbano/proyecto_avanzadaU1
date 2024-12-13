@@ -12,66 +12,16 @@ import { Router } from '@angular/router';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  gameCode: string = '';
-  players: string[] = [];
-  waiting: boolean = false; // Estado de espera
-  gameReady: boolean = false; // Estado de la partida lista
+  constructor(private router: Router) {}
 
-  constructor(private socketService: SocketService, private router: Router) {
-    // Escuchar eventos del servidor
-    this.socketService.on('playerJoined', (data: any) => {
-      this.players = data.players;
-    });
-
-    this.socketService.on('gameReady', (data: any) => {
-      this.gameReady = true;
-    });
-
-    this.socketService.on('gameStarted', (data: any) => {
-      console.log('Evento recibido:', data.message); // Debug
-      this.router.navigate(['/game-board']); // Redirigir al tablero de puntos
-    });
+  // Redirigir al componente de crear partida
+  goToCreateGame() {
+    this.router.navigate(['/create-game']);
   }
 
-  createGame() {
-    this.gameCode = Math.random().toString(36).substring(2, 8).toUpperCase();
-
-    this.socketService.emit(
-      'createGame',
-      { gameCode: this.gameCode },
-      (response: any) => {
-        if (response.success) {
-          console.log('Partida creada:', response.gameCode);
-          this.waiting = true; // Cambiar a sala de espera
-        } else {
-          console.error('Error al crear la partida:', response.message);
-        }
-      }
-    );
-  }
-
-  joinGame() {
-    const code = prompt('Ingresa el código de la partida:');
-    if (code) {
-      this.socketService.emit(
-        'joinGame',
-        { gameCode: code },
-        (response: any) => {
-          if (response.success) {
-            console.log('Unido a la partida:', code);
-            this.waiting = true; // Cambiar a sala de espera
-          } else {
-            console.error('Error al unirse:', response.message);
-          }
-        }
-      );
-    }
-  }
-
-  startGame() {
-    if (this.gameCode) {
-      this.socketService.emit('startGame', this.gameCode);
-    }
+  // Redirigir al componente de unirse a partida
+  goToJoinGame() {
+    this.router.navigate(['/join-game']);
   }
 
 }

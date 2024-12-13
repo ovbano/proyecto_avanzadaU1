@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Crear Partida</h1>
+
+  <div *ngIf="!waiting">
+    <button (click)="createGame()">Crear una nueva partida</button>
+  </div>
+
+  <div *ngIf="waiting">
+    <app-waiting-room [gameCode]="gameCode" [players]="players" [gameReady]="true"></app-waiting-room>
+  </div>
+</div>

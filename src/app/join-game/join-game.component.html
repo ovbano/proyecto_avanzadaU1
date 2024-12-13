@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Unirse a una Partida</h1>
+
+  <div>
+    <label for="gameCode">Código de la partida:</label>
+    <input id="gameCode" [(ngModel)]="gameCode" placeholder="Ingresa el código de la partida">
+    <button (click)="joinGame()">Unirse</button>
+  </div>
+
+  <div *ngIf="waiting">
+    <app-waiting-room [gameCode]="gameCode" [players]="players" [gameReady]="true"></app-waiting-room>
+  </div>
+</div>

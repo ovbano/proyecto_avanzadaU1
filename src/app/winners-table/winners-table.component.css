@@ -1,0 +1,124 @@
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 4rem;
+  margin-top: -1rem; /* Ajuste fino para subir el título */
+  margin-bottom: 5rem; /* Aumentamos el espacio debajo del título */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Fondo de pantalla completo con degradado animado */
+.podium-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #12230e, #495020, #808c5a, #8c744c);
+  background-size: 300% 300%;
+  animation: gradientAnimation 10s ease infinite;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  padding-top: 5rem; /* Añadir espacio superior para los contenedores */
+}
+
+/* Animación para el fondo degradado */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Contenedores de los ganadores */
+.podium {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 3rem;
+  width: 100%;
+  margin-top: 2rem; /* Asegura que haya espacio suficiente entre los ganadores y el título */
+}
+
+/* Contenedores de los elementos del podio */
+.podium-item {
+  background-color: rgba(108, 99, 255, 0.9);
+  color: #fff;
+  width: 300px;
+  height: 450px;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 20px;
+  position: relative;
+  font-weight: bold;
+  animation: bounce 1.5s infinite ease-in-out;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.podium-item:hover {
+  transform: scale(1.05);
+}
+
+.podium-item .avatar {
+  font-size: 7rem;
+  margin-bottom: 1.5rem;
+}
+
+.podium-item .position {
+  font-size: 4rem;
+  position: absolute;
+  top: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #C4AF73; /* Usamos uno de los colores proporcionados */
+  color: #000;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.podium-item .name {
+  font-size: 2.2rem;
+  margin: 1.5rem 0;
+}
+
+.podium-item .score {
+  font-size: 2rem;
+}
+
+/* Colores específicos por posición */
+.first-place {
+  height: 500px;
+  background-color: rgba(196, 175, 115, 0.9); /* #C4AF73 */
+  animation-delay: 0s;
+}
+
+.second-place {
+  height: 450px;
+  background-color: rgba(35, 69, 28, 0.9); /* #23451C */
+  animation-delay: 0.2s;
+}
+
+.third-place {
+  height: 420px;
+  background-color: rgba(106, 108, 58, 0.9); /* #6a6c3a */
+  animation-delay: 0.4s;
+}
+
+/* Animación de subir y bajar más notoria */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-40px);
+  }
+}

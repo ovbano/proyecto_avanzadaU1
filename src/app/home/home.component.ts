@@ -24,4 +24,9 @@ export class HomeComponent {
     this.router.navigate(['/join-game']);
   }
 
+  // Redirigir al componente de unirse a partida
+  goToRecords() {
+    this.router.navigate(['/record']);
+  }
+
 }

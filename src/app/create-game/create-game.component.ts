@@ -15,6 +15,8 @@ export class CreateGameComponent {
   gameCode: string = '';
   players: string[] = [];  // Definir la propiedad 'players'
   waiting: boolean = false;
+  playerName: string = '';
+  message: string = '';
 
   constructor(private socketService: SocketService, private router: Router) {
     // Escuchar los jugadores que se unen a la partida
@@ -27,7 +29,7 @@ export class CreateGameComponent {
     this.gameCode = Math.random().toString(36).substring(2, 8).toUpperCase();
     this.socketService.emit(
       'createGame',
-      { gameCode: this.gameCode },
+      { gameCode: this.gameCode, },
       (response: any) => {
         if (response.success) {
           console.log('Partida creada:', response.gameCode);

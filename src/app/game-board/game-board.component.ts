@@ -61,26 +61,17 @@ export class GameBoardComponent {
 
   // Actualizar puntaje manualmente
   updateScore(gameCode: string, player: string, round: string, score: string) {
-    if (!gameCode) {
-      console.error('El código de la partida no está definido');
-      return;
-    }
-
     const parsedScore = parseInt(score, 10) || 0;
     if (this.scores[player] && this.scores[player][round] !== undefined) {
       this.scores[player][round] = parsedScore;
-
+      console.log(`Puntaje actualizado para ${player} en la ronda ${round}: ${parsedScore}`);
       // Emitir cambios al servidor
-      this.socketService.emit('updateScore', {
-        gameCode,
-        player,
-        round,
-        score: parsedScore,
-      });
+      this.socketService.emit('updateScore', { gameCode, player, round, score: parsedScore });
     } else {
       console.error('Jugador o ronda inválidos para actualizar el puntaje.');
     }
   }
+
 
 
   // Calcular el total de los puntajes de un jugador

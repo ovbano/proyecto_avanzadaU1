@@ -1,3 +1,4 @@
+<br><br>
 <div class="container">
   <h1>Crear Partida</h1>
 
@@ -6,6 +7,8 @@
   </div>
 
   <div *ngIf="waiting">
-    <app-waiting-room [gameCode]="gameCode" [players]="players" [gameReady]="true"></app-waiting-room>
+    <div class="app-waiting-room">
+      <app-waiting-room [gameCode]="gameCode" [players]="players" [gameReady]="true"></app-waiting-room>
+    </div>
   </div>
 </div>

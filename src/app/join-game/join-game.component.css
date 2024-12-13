@@ -1,0 +1,72 @@
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: rgba(36, 69, 28, 0.95); /* Fondo semitransparente */
+  border-radius: 8px;
+  color: #C4AF73; /* Texto */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Sombra */
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  color: #C4AF73;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #C4AF73;
+}
+
+input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #6a6c3a;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #C4AF73;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #C4AF73;
+  background-color: #495020;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  color: #C4AF73;
+  background-color: #495020;
+  border: 1px solid #6a6c3a;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #6a6c3a;
+  transform: translateY(-2px);
+}
+
+button:active {
+  background-color: #23451C;
+  transform: translateY(1px);
+}
+
+div {
+  text-align: center;
+}
+
+.app-waiting-room {
+  margin-top: 20px;
+}

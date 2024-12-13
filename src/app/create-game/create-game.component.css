@@ -1,0 +1,60 @@
+.container {
+  font-family: Arial, sans-serif;
+  background-color: #12230e; /* Fondo principal oscuro */
+  color: #C4AF73; /* Texto claro */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  text-align: center;
+  color: #C4AF73; /* Color destacado para el título */
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #495020; /* Color de fondo del botón */
+  color: #C4AF73; /* Texto del botón */
+  border: 2px solid #6a6c3a;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #6a6c3a; /* Fondo más claro al pasar el mouse */
+  transform: scale(1.05); /* Efecto de aumento */
+}
+
+button:active {
+  background-color: #808c5a; /* Color al presionar */
+  transform: scale(0.95); /* Reducir tamaño temporal */
+}
+
+.app-waiting-room {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #23451C; /* Fondo de la sala de espera */
+  border: 2px solid #80845c;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: #8c744c;
+  color: #12230e;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+}

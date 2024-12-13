@@ -1,32 +1,87 @@
-.game-board {
-  text-align: center;
-  margin: 20px;
-  padding: 10px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-}
-
-.game-board {
-  margin-top: 30px;
-}
-
-table {
+/* Estilos generales para la tabla */
+.table {
   width: 100%;
-}
-
-th, td {
-  text-align: center;
-}
-
-input {
-  width: 80px;
-  text-align: center;
-}
-
-td input {
+  margin: 20px 0;
+  border-collapse: collapse;
+  background-color: #f9f9f9;
+  font-family: 'Arial', sans-serif;
   font-size: 14px;
 }
 
-tfoot tr td {
+/* Estilos para los encabezados de la tabla */
+.table thead {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.table th {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Estilos para las filas de la tabla */
+.table tbody tr {
+  background-color: #fff;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Filas alternadas */
+}
+
+.table td {
+  padding: 10px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.table tbody tr:hover {
+  background-color: #e0f7fa; /* Efecto al pasar el ratón por las filas */
+}
+
+/* Estilos para los inputs de los puntajes */
+.table input.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.table input.form-control:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+/* Estilos para la fila de totales */
+.table tfoot td {
   font-weight: bold;
+  background-color: #e8f5e9;
+}
+
+.table tfoot td:first-child {
+  text-align: left;
+  padding-left: 15px;
+}
+
+/* Bordes de la tabla */
+.table-bordered {
+  border: 1px solid #ddd;
+}
+
+.table-bordered th, .table-bordered td {
+  border: 1px solid #ddd;
+}
+
+/* Efectos en los inputs */
+.table input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.table input[type="number"]::-webkit-outer-spin-button,
+.table input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

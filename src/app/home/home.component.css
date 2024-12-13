@@ -10,7 +10,62 @@ h1 {
 }
 
 .actions {
-  margin: 20px 0;
+  margin: 20px 0;body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #C4AF73;
+    background-image: url('../../../public/fondo.png'); /* Imagen de fondo */
+    background-size: cover; /* Cubre todo el fondo */
+    background-position: center;
+    background-attachment: fixed; /* Fondo fijo al hacer scroll */
+    filter: brightness(0.7); /* Difumina y oscurece la imagen ligeramente */
+  }
+
+  .container {
+    background-color: rgba(18, 35, 14, 0.85); /* Fondo semitransparente oscuro */
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 700px;
+    margin: 100px auto; /* Centra vertical y horizontalmente */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #C4AF73;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaciado entre los botones */
+    align-items: center;
+  }
+
+  button {
+    background-color: #495020;
+    color: #C4AF73;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 60%; /* Botones más grandes */
+  }
+
+  button:hover {
+    background-color: #6a6c3a;
+    transform: scale(1.05);
+  }
+
+  button:active {
+    background-color: #808c5a;
+    transform: scale(0.95);
+  }
+
 }
 
 button {

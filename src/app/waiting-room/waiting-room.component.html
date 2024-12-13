@@ -1,12 +1,86 @@
-<div *ngIf="gameCode">
-  <h2>Sala de espera</h2>
-  <p>Código de la partida: <strong>{{ gameCode }}</strong></p>
-  <p>Jugadores:</p>
-  <ul>
-    <li *ngFor="let player of players">{{ player }}</li>
-  </ul>
+<header class="header">
+  <h1>TELEFUNKEN</h1>
+  <p>Sala: La Batalla de Reyes</p>
+</header>
 
-  <div *ngIf="gameReady">
-    <button (click)="startGame()">Iniciar Partida</button>
+<div class="main-container">
+  <!-- Jugadores en la sala -->
+  <section class="jugadores">
+    <h2>Jugadores en la sala</h2>
+    <div class="jugadores-lista">
+      <div class="jugador-item" *ngFor="let jugador of jugadores">
+        <a href="#" class="jugador-avatar-link">
+          <img [src]="jugador.avatar" class="jugador-avatar" alt="Avatar">
+        </a>
+        <span class="jugador-nombre">{{ jugador.nombre }}</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="right-section">
+    <!-- Sala de espera y chat -->
+    <section class="sala-espera" *ngIf="gameCode">
+      <h2>Sala de espera</h2>
+      <p>Código de la partida: <strong>{{ gameCode }}</strong></p>
+      <p>Jugadores conectados:</p>
+      <ul>
+        <li *ngFor="let player of players">{{ player }}</li>
+      </ul>
+
+      <div *ngIf="gameReady">
+        <button (click)="startGame()">Iniciar Partida</button>
+      </div>
+    </section>
+
+    <!-- Chat en vivo -->
+    <section class="chat">
+      <h2>Chat en vivo</h2>
+      <div class="chat-box">
+        <div *ngFor="let mensaje of mensajesChat">
+          <p><span class="nombre-chat">{{ mensaje.nombre }}:</span> {{ mensaje.texto }}</p>
+        </div>
+      </div>
+      <input type="text" [(ngModel)]="mensajeActual" class="chat-input" placeholder="Escribe un mensaje..." />
+      <button (click)="enviarMensaje()">Enviar</button>
+    </section>
+
+    <!-- Temporizador y acciones -->
+    <section class="temporizador">
+      <h2>Tiempo para empezar</h2>
+      <div class="reloj">
+        <p class="tiempo">{{ tiempoRestante }}</p>
+        <p>Esperando más jugadores...</p>
+      </div>
+    </section>
+
+    <section class="acciones">
+      <button class="reglas-btn" (click)="openModal()">Ver reglas del juego</button>
+      <button (click)="salirSala()" class="boton-salir">Salir de la sala</button>
+    </section>
   </div>
+</div>
+
+<!-- Modal para las reglas del juego -->
+<ng-container *ngIf="showModal">
+  <div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="closeModal()">×</button>
+      <h2>Reglas del Juego</h2>
+      <ul>
+        <li>Cada jugador recibe 11 cartas.</li>
+        <li>El objetivo es deshacerse de la mayor cantidad de cartas completando las rondas.</li>
+        <li>El ganador es quien termine de completar todas las rondas con la menor cantidad de puntos.</li>
+      </ul>
+    </div>
+  </div>
+</ng-container>
+
+<hr />
+
+<!-- Área de tiempo restante y opciones adicionales -->
+<p>Tiempo restante: {{ tiempoRestante }}</p>
+<button (click)="openModal()">Mostrar Información</button>
+<div *ngIf="showModal" class="modal">
+  <p>Información adicional</p>
+  <button (click)="closeModal()">Cerrar</button>
 </div>

@@ -13,7 +13,7 @@ h1 {
   margin: 20px 0;body {
     margin: 0;
     font-family: Arial, sans-serif;
-    color: #C4AF73;
+    color: white;
     background-image: url('../../../public/fondo.png'); /* Imagen de fondo */
     background-size: cover; /* Cubre todo el fondo */
     background-position: center;
@@ -34,7 +34,7 @@ h1 {
   h1 {
     font-size: 2.5rem;
     margin-bottom: 30px;
-    color: #C4AF73;
+    color: white;
   }
 
   .actions {
@@ -46,7 +46,7 @@ h1 {
 
   button {
     background-color: #495020;
-    color: #C4AF73;
+    color: white;
     border: none;
     padding: 12px 25px;
     font-size: 1.2rem;
@@ -87,10 +87,10 @@ button:hover {
 .game-code, .joined {
   margin-top: 30px;
   font-size: 1.2rem;
-  color: #333;
+  color: white;
 }
 
 .game-code h2 {
   font-size: 1.5rem;
-  color: #007bff;
+  color: white;
 }

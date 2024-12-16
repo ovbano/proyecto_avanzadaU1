@@ -4,14 +4,14 @@
   padding: 20px;
   background-color: rgba(36, 69, 28, 0.95); /* Fondo semitransparente */
   border-radius: 8px;
-  color: #C4AF73; /* Texto */
+  color: white; /* Texto */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Sombra */
 }
 
 h1 {
   font-size: 2rem;
   text-align: center;
-  color: #C4AF73;
+  color: white;
   margin-bottom: 20px;
 }
 
@@ -19,7 +19,7 @@ label {
   display: block;
   font-size: 1.1rem;
   margin-bottom: 8px;
-  color: #C4AF73;
+  color: white;
 }
 
 input {
@@ -29,7 +29,7 @@ input {
   border: 1px solid #6a6c3a;
   border-radius: 4px;
   background-color: #ffffff;
-  color: #C4AF73;
+  color: white;
   font-size: 1rem;
   outline: none;
   transition: border-color 0.3s ease;
@@ -45,7 +45,7 @@ button {
   width: 100%;
   padding: 12px;
   font-size: 1rem;
-  color: #C4AF73;
+  color: white;
   background-color: #495020;
   border: 1px solid #6a6c3a;
   border-radius: 4px;

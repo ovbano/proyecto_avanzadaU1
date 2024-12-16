@@ -14,6 +14,8 @@ export class GameBoardComponent {
   rounds: string[] = ['1/3', '2/3', '1/4', '2/4', '1/5', '2/5', 'ESCALERA']; // Columnas de rondas
   scores: { [player: string]: { [round: string]: number } } = {}; // Puntajes
   gameCode: string = ''; // Código de la partida (puedes obtenerlo según tu lógica)
+  tokens: number[] = Array(12).fill(0); // 12 fichas inicialmente
+
 
   constructor(private socketService: SocketService) {}
 
@@ -21,6 +23,16 @@ export class GameBoardComponent {
     this.listenToGameUpdates();
     this.listenToScoreUpdates();
     console.log('Jugadores al iniciar:', this.players);  // Verifica los jugadores al cargar el componente
+  }
+
+  // Lógica para usar una ficha
+  useToken() {
+    if (this.tokens.length > 0) {
+      this.tokens.pop(); // Elimina la última ficha
+      console.log(`Fichas restantes: ${this.tokens.length}`);
+    } else {
+      alert('No quedan fichas disponibles.');
+    }
   }
 
   // Escuchar las actualizaciones de los puntajes en tiempo real
@@ -69,6 +81,14 @@ export class GameBoardComponent {
       this.socketService.emit('updateScore', { gameCode, player, round, score: parsedScore });
     } else {
       console.error('Jugador o ronda inválidos para actualizar el puntaje.');
+    }
+  }
+
+  chips: number = 12;
+
+  decreaseChips(): void {
+    if (this.chips > 0) {
+      this.chips--;
     }
   }
 

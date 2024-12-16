@@ -2,14 +2,14 @@
 body {
   font-family: 'Arial', sans-serif;
   background-color: #12230e;
-  color: #C4AF73;
+  color: white;
   margin: 0;
   padding: 0;
 }
 
 .header {
   background-color: #23451C;
-  color: #C4AF73;
+  color: white;
   padding: 20px;
   text-align: center;
   border-bottom: 2px solid #6a6c3a;
@@ -112,7 +112,7 @@ body {
   border: 1px solid #6a6c3a;
   border-radius: 4px;
   background-color: #80845c;
-  color: #C4AF73;
+  color: white;
   margin-bottom: 10px;
 }
 
@@ -126,7 +126,7 @@ body {
   width: 100%;
   background-color: #495020;
   border: none;
-  color: #C4AF73;
+  color: white;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -146,7 +146,7 @@ body {
 
 .reloj {
   font-size: 1.5rem;
-  color: #C4AF73;
+  color: white;
 }
 
 /* Acciones */
@@ -159,7 +159,7 @@ body {
   padding: 10px 20px;
   margin: 10px;
   font-size: 1rem;
-  color: #C4AF73;
+  color: white;
   background-color: #495020;
   border: none;
   border-radius: 4px;
@@ -190,7 +190,7 @@ body {
   padding: 20px;
   border-radius: 8px;
   text-align: center;
-  color: #C4AF73;
+  color: white;
   width: 90%;
   max-width: 400px;
 }
@@ -210,6 +210,6 @@ body {
   font-size: 1.5rem;
   background: none;
   border: none;
-  color: #C4AF73;
+  color: white;
   cursor: pointer;
 }

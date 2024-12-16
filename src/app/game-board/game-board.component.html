@@ -1,31 +1,47 @@
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Rondas</th>
-      <th *ngFor="let player of players">{{ player }}</th> <!-- Jugadores como columnas -->
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let round of rounds">
-      <td>{{ round }}</td> <!-- Rondas como filas -->
+<div class="game-interface">
+  <table class="table table-bordered">
+    <thead class="table-header">
+      <tr>
+        <th>Rondas</th>
+        <th *ngFor="let player of players">{{ player }}</th> <!-- Jugadores como columnas -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let round of rounds">
+        <td class="row-label">{{ round }}</td> <!-- Rondas como filas -->
 
-      <!-- Puntajes de cada jugador -->
-      <td *ngFor="let player of players">
-        <input
-          class="form-control"
-          type="number"
-          [value]="getScore(player, round)"
-          (input)="updateScore(gameCode, player, round, handleInputChange($event))"
-        />
-      </td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <td>Total</td>
-      <td *ngFor="let player of players">
-        {{ getTotalScore(player) }} <!-- Muestra la sumatoria de los puntajes de cada jugador -->
-      </td>
-    </tr>
-  </tfoot>
-</table>
+        <!-- Puntajes de cada jugador -->
+        <td *ngFor="let player of players">
+          <input
+            class="form-control score-input"
+            type="number"
+            [value]="getScore(player, round)"
+            (input)="updateScore(gameCode, player, round, handleInputChange($event))"
+          />
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr class="final-score-row">
+        <td>Total</td>
+        <td *ngFor="let player of players">
+          {{ getTotalScore(player) }} <!-- Muestra la sumatoria de los puntajes de cada jugador -->
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <!-- Sistema de fichas -->
+  <div class="chip-system">
+    <p style="color: white;">Fichas restantes: {{ tokens.length }}</p>
+    <div class="chip-container">
+      <div
+        *ngFor="let token of tokens"
+        class="chip"
+        (click)="useToken()"
+      >
+        💠
+      </div>
+    </div>
+  </div>
+</div>

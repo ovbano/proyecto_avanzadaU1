@@ -1,7 +1,7 @@
 .container {
   font-family: Arial, sans-serif;
   background-color: #12230e; /* Fondo principal oscuro */
-  color: #C4AF73; /* Texto claro */
+  color: white; /* Texto claro */
   padding: 20px;
   border-radius: 10px;
   max-width: 600px;
@@ -11,20 +11,21 @@
 
 h1 {
   text-align: center;
-  color: #C4AF73; /* Color destacado para el título */
+  color: white; /* Color destacado para el título */
   font-size: 2rem;
   margin-bottom: 20px;
 }
 
 button {
   background-color: #495020; /* Color de fondo del botón */
-  color: #C4AF73; /* Texto del botón */
+  color: white; /* Texto del botón */
   border: 2px solid #6a6c3a;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 10px 0; /* Espaciado entre botones */
 }
 
 button:hover {
@@ -57,4 +58,14 @@ li {
   margin: 5px 0;
   padding: 10px;
   border-radius: 5px;
+}
+
+input[type="text"] {
+  width: 100%; /* Ancho completo */
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #6a6c3a; /* Borde del campo de texto */
+  margin-bottom: 10px; /* Espacio inferior */
+  background-color: #C4AF73; /* Fondo del campo de texto */
+  color: #12230e; /* Texto del campo de texto */
 }

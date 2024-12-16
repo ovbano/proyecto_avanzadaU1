@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  color: #C4AF73;
+  color: white;
   background-image: url('../public/fondo.png'); /* Imagen de fondo */
   background-size: cover; /* Cubre todo el fondo */
   background-position: center;
@@ -18,17 +18,18 @@ body {
   margin: 100px auto; /* Centra vertical y horizontalmente */
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
   text-align: center;
+  color: white;
 }
 
 h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #C4AF73;
+  color: white;
 }
 
 button {
   background-color: #495020;
-  color: #C4AF73;
+  color: white;
   border: none;
   padding: 12px 25px;
   font-size: 1rem;
